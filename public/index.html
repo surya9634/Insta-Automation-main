@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workflow - Instagram Login</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    button {
+      padding: 12px 20px;
+      background: #1877f2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #145bd1;
+    }
+    .note {
+      font-size: 14px;
+      color: #666;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Connect Your Instagram</h1>
+    <p>Login with your Instagram business account to start automating DMs on comments.</p>
+    <button onclick="connectInstagram()">Login with Instagram</button>
+    <p class="note">You’ll be redirected to Facebook to authorize access.</p>
+  </div>
+
+  <script>
+    function connectInstagram() {
+      window.location.href = 'http://localhost:5000/auth/instagram-login'; // change to your domain if deployed
+    }
+  </script>
+</body>
+</html>
