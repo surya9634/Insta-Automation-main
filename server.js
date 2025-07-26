@@ -4,6 +4,7 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const qs = require('querystring');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -16,6 +17,12 @@ const FB_APP_SECRET = process.env.FB_APP_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
 
 let users = []; // In-memory store, replace with DB in production
+
+// Serve frontend static files
+app.use(express.static(path.join(__dirname, 'public')));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // Step 1: Redirect to Facebook Login
 app.get('/auth/instagram-login', (req, res) => {
